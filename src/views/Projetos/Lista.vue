@@ -40,20 +40,31 @@
 import { computed, defineComponent } from "vue";
 import { useStore } from "@/store";
 import { EXCLUIR_PROJETO } from "@/store/tipo-mutacoes";
+import useNotificador from "@/hooks/notificador";
+import { TipoNotificacao } from "@/interfaces/INotificacao";
+import { RouterLink } from "vue-router";
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Lista",
+
   methods: {
     excluir(id: string) {
       this.store.commit(EXCLUIR_PROJETO, id);
+      this.notificar(
+        TipoNotificacao.FALHA,
+        "Projeto Excluído",
+        "O projeto foi deletado!",
+      );
     },
   },
   setup() {
     const store = useStore();
+    const { notificar } = useNotificador();
     return {
       projetos: computed(() => store.state.projetos),
       store,
+      notificar,
     };
   },
 });
