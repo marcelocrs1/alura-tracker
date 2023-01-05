@@ -3,12 +3,8 @@
     <h1>
       <img src="../assets/logo.png" alt="" />
     </h1>
-    <div class="has-text-centered dark">
-      <i
-        class="fas fa-lg darkButton"
-        :class="iconCSSClass"
-        @click="alterarTema"
-      ></i>
+    <div class="has-text-centered dark" @click="alterarTema">
+      <i class="fas fa-lg darkButton" :class="iconCSSClass"></i>
     </div>
     <nav class="panel mat-5">
       <ul>
@@ -87,6 +83,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .darkButton:hover {
   scale: 1.2;
