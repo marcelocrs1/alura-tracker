@@ -61,6 +61,16 @@ export default defineComponent({
 
 <style scoped>
 .projetos {
+  /* display: flex;
+  flex-flow: column; */
+  gap: 20px;
   padding: 1.25rem;
+}
+a {
+  margin-bottom: 10px;
+}
+
+table {
+  border-radius: 10px;
 }
 </style>
