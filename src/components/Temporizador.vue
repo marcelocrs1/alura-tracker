@@ -1,6 +1,6 @@
 <template>
   <section
-    class="is-flex is-align-items-center is-justify-content-space-between"
+    class="is-flex is-align-items-center is-justify-content-space-evenly"
   >
     <Cronometro :tempoEmSegundos="tempoEmSegundos" />
     <Botao
