@@ -3,10 +3,12 @@
     <h1>
       <img src="../assets/logo.png" alt="" />
     </h1>
-    <div class="has-text-centered">
-      <button class="button" @click="alterarTema">
-        {{ textoBotao }}
-      </button>
+    <div class="has-text-centered dark">
+      <i
+        class="fas fa-lg darkButton"
+        :class="iconCSSClass"
+        @click="alterarTema"
+      ></i>
     </div>
     <nav class="panel mat-5">
       <ul>
@@ -38,11 +40,8 @@ export default defineComponent({
     };
   },
   computed: {
-    textoBotao() {
-      if (this.modoEscuroAtivo) {
-        return "Modo Claro";
-      }
-      return "Modo Escuro";
+    iconCSSClass() {
+      return !this.modoEscuroAtivo ? "fa-moon" : "fa-sun";
     },
   },
   methods: {
@@ -56,11 +55,14 @@ export default defineComponent({
 
 <style scoped>
 header {
+  display: flex;
+  flex-flow: column;
   padding: 1rem;
   background: #0d3b66;
   width: 100%;
   height: 100vh;
   text-align: center;
+  align-items: center;
 }
 .panel li {
   margin: 8px 0;
@@ -73,6 +75,23 @@ header {
 }
 .link.router-link-active {
   color: #faf0ca;
+}
+.dark {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  border: 1.5px solid white;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.darkButton:hover {
+  scale: 1.2;
+  color: #faf0ca;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
